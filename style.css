@@ -1,0 +1,35 @@
+.container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 10em;
+    /* background-color: red; */
+
+
+
+}
+
+
+#clock {
+
+    font-size: 7em;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+
+}
+
+button {
+    margin: 30px;
+    text-align: center;
+    color: white;
+    font-size: 1.2em;
+    width: 4em;
+    height: 4em;
+    border-radius: 0.5em;
+    border: 0 solid black;
+    background-color: cadetblue;
+}
+
+button:hover {
+    background-color: gray
+}
