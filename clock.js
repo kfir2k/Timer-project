@@ -3,11 +3,14 @@ const startStop = document.getElementById("start-stop");
 const clearRound = document.getElementById("clear-round");
 const start = document.querySelector(".start")
 const stopc = document.querySelector(".stop")
+const clear = document.querySelector(".clear")
+const round = document.querySelector(".round")
 
 let stateBtn1 = false
 let stateBtn2 = false
 
 start.innerHTML = "start";
+
 
 let count = {
     ms: 0,
@@ -30,7 +33,7 @@ let goClock = () => {
 
         count.ms++
         console.log(count);
-        if (count.ms === 60) {
+        if (count.ms === 100) {
             count.ms = 0;
             count.sec++
             if (count.sec === 60) {
@@ -42,7 +45,7 @@ let goClock = () => {
 
 
 
-    }, 1);
+    }, 10);
 
 
 
@@ -60,6 +63,8 @@ function btn1() {
     }
     console.log(stateBtn1);
 }
+
+
 
 let clearedCounter = () => clock.innerHTML = "00:00:00"
 window.addEventListener("load", clearedCounter);
