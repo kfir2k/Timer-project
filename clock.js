@@ -43,9 +43,12 @@ let goClock = () => {
 }
 
 
-
+let indexOfRound = 0
 let printRound = () => {
-    roundList.innerHTML += `<div/>Round ${count.min.toString().padStart(2, '0')}:${count.sec.toString().padStart(2, '0')}:${count.ms.toString().padStart(2, '0')}<div>`
+
+    indexOfRound++
+    roundList.innerHTML += `<div/>${indexOfRound}. ${count.min.toString().padStart(2, '0')}:${count.sec.toString().padStart(2, '0')}:${count.ms.toString().padStart(2, '0')}<div>`
+
 }
 
 
@@ -85,6 +88,7 @@ let clearedCounter = () => {
     count.min = 0
     count.sec = 0
     roundList.innerHTML = ""
+    indexOfRound = 0
 }
 window.addEventListener("load", clearedCounter);
 startStop.addEventListener("click", btn1)
