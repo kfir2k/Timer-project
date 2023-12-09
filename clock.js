@@ -6,12 +6,13 @@ const stopc = document.querySelector(".stop");
 const clear = document.querySelector(".clear");
 const round = document.querySelector(".round");
 const roundList = document.getElementById("rounds");
+const roundContainder = document.getElementById("roundcontainer")
 
 let stateBtn1 = false;
 let stateBtn2 = false;
 
-start.innerHTML = "start";
-clear.innerHTML = "clear";
+start.innerHTML = "Start";
+clear.innerHTML = "Clear";
 
 let count = {
     ms: 0,
@@ -21,12 +22,12 @@ let count = {
 
 let goClock = () => {
 
-    stopc.innerHTML = "stop";
+    stopc.innerHTML = "Stop";
 
     let intervalID = setInterval(() => {
         if (stateBtn1 === false) {
             clearInterval(intervalID)
-            start.innerHTML = "start";
+            start.innerHTML = "Start";
         }
         clock.innerHTML = `${count.min.toString().padStart(2, '0')}:${count.sec.toString().padStart(2, '0')}:${count.ms.toString().padStart(2, '0')}`
         count.ms++;
@@ -46,19 +47,19 @@ let goClock = () => {
 let indexOfRound = 0
 let printRound = () => {
     indexOfRound++;
-    roundList.innerHTML += `<div/>${indexOfRound}. ${count.min.toString().padStart(2, '0')}:${count.sec.toString().padStart(2, '0')}:${count.ms.toString().padStart(2, '0')}<div>`
+    roundList.innerHTML += `<div/>${indexOfRound}) ${count.min.toString().padStart(2, '0')}:${count.sec.toString().padStart(2, '0')}:${count.ms.toString().padStart(2, '0')}<div>`
 }
 function btn1() {
     console.log("btn1", stateBtn1);
     if (stateBtn1 === false) {
         stateBtn1 = true;
         stateBtn2 = true;
-        round.innerHTML = "round";
+        round.innerHTML = "Round";
         goClock()
     } else {
         stateBtn1 = false;
         stateBtn2 = false;
-        clear.innerHTML = "clear";
+        clear.innerHTML = "Clear";
     }
 }
 
@@ -67,8 +68,9 @@ function btn2() {
     if (stateBtn2 === false && stateBtn1 === false) {
         clearedCounter()
     } else {
-        round.innerHTML = "round";
+        round.innerHTML = "Round";
         printRound()
+        updateScroll()
     }
 }
 
@@ -80,6 +82,14 @@ let clearedCounter = () => {
     roundList.innerHTML = "";
     indexOfRound = 0;
 }
+
+
+function updateScroll() {
+
+    window.scrollTo(0, document.body.scrollHeight);
+}
+
+
 window.addEventListener("load", clearedCounter);
 startStop.addEventListener("click", btn1);
 clearRound.addEventListener("click", btn2);
