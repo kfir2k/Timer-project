@@ -31,7 +31,7 @@ let goClock = () => {
         }
         clock.innerHTML = `${count.min.toString().padStart(2, '0')}:${count.sec.toString().padStart(2, '0')}:${count.ms.toString().padStart(2, '0')}`
         count.ms++;
-        console.log(count);
+        
         if (count.ms === 100) {
             count.ms = 0;
             count.sec++;
@@ -50,7 +50,7 @@ let printRound = () => {
     roundList.innerHTML += `<div/>${indexOfRound}) ${count.min.toString().padStart(2, '0')}:${count.sec.toString().padStart(2, '0')}:${count.ms.toString().padStart(2, '0')}<div>`
 }
 function btn1() {
-    console.log("btn1", stateBtn1);
+    
     if (stateBtn1 === false) {
         stateBtn1 = true;
         stateBtn2 = true;
@@ -64,7 +64,7 @@ function btn1() {
 }
 
 function btn2() {
-    console.log("btn2", stateBtn2);
+    
     if (stateBtn2 === false && stateBtn1 === false) {
         clearedCounter()
     } else {
