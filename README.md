@@ -1,4 +1,4 @@
-# Stopwatch Project Readme
+# Stopwatch Project
 
 This is a simple stopwatch project designed to track time intervals accurately. 
 
